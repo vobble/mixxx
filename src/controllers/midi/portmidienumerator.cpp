@@ -13,6 +13,8 @@ namespace {
 const auto kMidiThroughPortPrefix = QLatin1String("MIDI Through Port");
 
 bool recognizeDevice(const PmDeviceInfo& deviceInfo) {
+    return true;
+#if 0
     // In developer mode we show the MIDI Through Port, otherwise ignore it
     // since it routinely causes trouble.
     return CmdlineArgs::Instance().getDeveloper() ||
@@ -22,6 +24,7 @@ bool recognizeDevice(const PmDeviceInfo& deviceInfo) {
             !QString::fromLatin1(deviceInfo.name)
 #endif
                      .startsWith(kMidiThroughPortPrefix, Qt::CaseInsensitive);
+#endif
 }
 
 } // namespace
